@@ -75,9 +75,9 @@ Database login information stored in `/root/.my.cnf`.
 Set individual parameters in /etc/my.cnf (or platform equivalent) using augeas
 Does not notify the service for a restart.
 
-  mysql::cnf {'mysqld/max_connections':
-    value => '3096',
-  }
+    mysql::cnf {'mysqld/max_connections':
+      value => '3096',
+    }
 
 
 ### mysql::db
