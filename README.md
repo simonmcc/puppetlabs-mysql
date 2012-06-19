@@ -71,6 +71,15 @@ Installs mysql-server packages, configures my.cnf and starts mysqld service:
 
 Database login information stored in `/root/.my.cnf`.
 
+### mysql::cnf
+Set individual parameters in /etc/my.cnf (or platform equivalent) using augeas
+Does not notify the service for a restart.
+
+  mysql::cnf {'mysqld/max_connections':
+    value => '3096',
+  }
+
+
 ### mysql::db
 Creates a database with a user and assign some privileges.
 
@@ -116,6 +125,12 @@ The custom resources can be used in any other manifests:
     database_grant { 'user@localhost/database':
       privileges => ['all'] ,
     }
+
+    # dynamically set a variable, not commited a a config file
+    dynamic_variable { 'max_connections': 
+      value => '4000' 
+    }
+
 
 A resource default can be specified to handle dependency:
 
