@@ -27,7 +27,7 @@ class mysql::params {
   }
 
   case $::osfamily {
-    'RedHat': {
+    'RedHat','OEL': {
       $basedir               = '/usr'
       $datadir               = '/var/lib/mysql'
       $service_name          = 'mysqld'
