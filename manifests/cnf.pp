@@ -70,5 +70,6 @@ define mysql::cnf (
   augeas { "my.cnf/${section}/${real_key}":
     context   => $context,
     changes   => $changes,
+    onlyif    => "get ${real_key} != ${value}",
   }
 }
