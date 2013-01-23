@@ -19,7 +19,12 @@ class mysql::params {
 
   case $::operatingsystem {
     "Ubuntu": {
-      $service_provider = upstart
+	if $::operatingsystemrelease == '8.04' {
+          $service_provider = 'init'
+	}
+	else {
+          $service_provider = upstart
+	}
     }
     default: {
       $service_provider = undef

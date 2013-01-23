@@ -71,7 +71,7 @@ class mysql::config(
   # restart.  the reason is that I need the service to be started before mods
   # to the config file which can cause a refresh
   exec { 'mysqld-restart':
-    command     => "service ${service_name} restart",
+    command     => "/etc/init.d/${service_name} restart",
     logoutput   => on_failure,
     refreshonly => true,
     path        => '/sbin/:/usr/sbin/:/usr/bin/:/bin/',
