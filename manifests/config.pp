@@ -41,6 +41,7 @@ class mysql::config(
   $etc_root_password = $mysql::params::etc_root_password,
   $service_name      = $mysql::params::service_name,
   $config_file       = $mysql::params::config_file,
+  $config_template   = $mysql::params::config_template,
   $socket            = $mysql::params::socket,
   $pidfile           = $mysql::params::pidfile,
   $datadir           = $mysql::params::datadir,
