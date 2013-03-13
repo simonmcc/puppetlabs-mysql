@@ -18,5 +18,7 @@ class mysql::server::mysqltuner {
     ensure  => present,
     mode    => '0550',
     source  => 'puppet:///modules/mysql/mysqltuner.pl',
+    require => Package['bc'],
   }
+  package {'bc': }
 }
